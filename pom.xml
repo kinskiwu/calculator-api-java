@@ -1,73 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>com.kinski</groupId>
-	<artifactId>calculator-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>calculator-api</name>
-	<description>A simple calculator API built with Java.</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
-	<properties>
-		<java.version>17</java.version>
-	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+<!--
+  XML declaration to specify version and encoding.
+  UTF-8 ensures that the file supports a wide range of characters.
+-->
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--
+      Root element for all Maven projects.
+      xsi:schemaLocation points to the Maven POM schema for validation.
+    -->
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+    <modelVersion>4.0.0</modelVersion>
+    <!-- Specifies the POM model version. Use 4.0.0 for Maven projects. -->
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.4</version>
+        <relativePath/>
+        <!--
+          Inherit from the Spring Boot starter parent to simplify dependency management.
+          The parent provides default versions for common dependencies and plugins.
+          <relativePath/> forces Maven to look for the parent in the repository.
+        -->
+    </parent>
+
+    <groupId>com.kinski</groupId>
+    <!--
+      Group ID follows the reverse domain naming convention.
+      This ensures uniqueness and helps identify the owner of the project.
+    -->
+
+    <artifactId>calculator-api</artifactId>
+    <!-- The artifact ID is the name of the project and will be part of the generated JAR file name. -->
+
+    <version>0.0.1-SNAPSHOT</version>
+    <!--
+      Versioning follows semantic versioning principles.
+      SNAPSHOT indicates that this is an ongoing development version.
+    -->
+
+    <name>calculator-api</name>
+    <!-- Human-readable name for the project. Used in logs and during deployments. -->
+
+    <description>A simple calculator API built with Java.</description>
+    <!-- Brief project description to provide context for contributors. -->
+
+    <url>https://github.com/kinskiwu/calculator-api-java</url>
+    <!-- URL to the project's source repository. Helps contributors find the codebase. -->
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <!--
+      MIT License is chosen for simplicity and permissiveness.
+      This allows the project to be reused in both private and commercial applications.
+    -->
+
+    <developers>
+        <developer>
+            <id>kinskiwu</id>
+            <name>Kinski Wu</name>
+            <email>kinskiwujx@gmail.com</email>
+        </developer>
+    </developers>
+    <!-- List of developers involved in the project. Helps track contributions. -->
+
+    <scm>
+        <connection>scm:git:git://github.com/kinskiwu/calculator-api-java.git</connection>
+        <developerConnection>scm:git:ssh://github.com/kinskiwu/calculator-api-java.git</developerConnection>
+        <url>https://github.com/kinskiwu/calculator-api-java</url>
+        <!--
+          Source Control Management (SCM) details, including the Git repository URL.
+          This is useful for build tools or Continuous Integration (CI) systems.
+        -->
+    </scm>
+
+    <properties>
+        <java.version>17</java.version>
+        <!-- Use Java 17, which is a Long-Term Support (LTS) version. -->
+    </properties>
+
+    <dependencies>
+        <!--
+          Dependencies section declares external libraries used in this project.
+          Maven will download these libraries from a central repository.
+        -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <!--
+              Adds Spring Boot's web starter to enable RESTful APIs.
+              It includes Tomcat and Jackson for embedded server and JSON handling.
+            -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+            <!--
+              Adds DevTools for hot-reloading during development.
+              Marked as optional and used only during runtime.
+            -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+            <!--
+              Lombok simplifies code by generating boilerplate code like getters and setters.
+              Marked as optional to avoid including it in production builds unnecessarily.
+            -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <!--
+              Adds dependencies for writing and running unit tests.
+              This includes JUnit, Mockito, and Spring Boot's test utilities.
+            -->
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+                <!--
+                  The Spring Boot Maven plugin is essential for building and running Spring Boot applications.
+                  Here, Lombok is excluded from the final JAR to keep the production build lightweight.
+                -->
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
